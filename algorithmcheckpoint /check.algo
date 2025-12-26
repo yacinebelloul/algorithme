@@ -1,0 +1,52 @@
+ALGORITHM 
+PROCEDURE dot-product(V1;V2 :table of integer ; n: integer ; ps:integer ; out result: integer) ;
+VAR
+    i: integer;
+BEGIN
+    result := 0;
+    FOR i := 1 TO n DO
+        result := result + V1[i] * V2[i];
+    END FOR;
+END
+ALGORITHM orthogonal-PROCEDURE
+VAR
+    i;j;n: integer;
+    V1,V2: table of integer;
+    dot_product_result: integer;
+    
+BEGIN
+    dot_product_result := dot-product(V1,V2,n,0);
+    IF dot_product_result = 0 THEN
+        write("The vectors are orthogonal.");
+    ELSE
+        write("The vectors are not orthogonal.");
+    END IF;
+END
+
+
+
+
+FUNCTION dot-product(V1;V2: integer ; n: integer ; ps: integer) : integer
+VAR
+    i: integer;
+    result: integer;
+BEGIN
+    result := 0;
+    FOR i := 1 TO n DO
+        result := result + V1[i] * V2[i];
+    END FOR;
+    RETURN result;
+END
+ALGORITHM orthogonal-PROCEDURE
+VAR
+    i;j;n: integer;
+    V1,V2: table of integer;
+    dot_product_result: integer;
+BEGIN
+    dot_product_result := dot-product(V1,V2,n,0);
+    IF dot_product_result = 0 THEN
+        write("The vectors are orthogonal.");
+    ELSE
+        write("The vectors are not orthogonal.");
+    END IF;
+END

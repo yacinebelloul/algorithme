@@ -1,0 +1,31 @@
+ALGORITHM sum
+VAR
+    T1;T2: table of integer;
+    n1;n2;i;j;somme: integer;
+    trouved: boolean;
+BEGIN
+    somme := 0;
+    FOR i := 1 TO n1 DO
+        trouved := false;
+        FOR j := 1 TO n2 WHILE trouved = false DO
+            IF T1[i] = T2[j] THEN
+                trouved := true;
+            END IF;
+        END FOR;
+        IF trouved = false THEN
+            somme := somme + T1[i];
+        END IF;
+    END FOR;
+
+    FOR i FROM 1 TO n2-1 DO
+        trouved := false;
+        FOR j FROM 1 TO n1 WHILE trouved = false DO
+            IF T2[i] = T1[j] THEN
+                trouved := true;
+            END IF;
+        END FOR;
+        IF trouved = false THEN
+            somme := somme + T2[i];
+        END IF;
+    END_FOR 
+END
